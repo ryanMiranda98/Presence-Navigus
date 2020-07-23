@@ -1,0 +1,20 @@
+{
+  "name": "presencenavigus",
+  "version": "1.0.0",
+  "description": "A simple presence service, similar to that of Google Docs, which shows people that are currently viewing a particular document.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "server": "nodemon server.js"
+  },
+  "author": "Ryan Miranda",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.9.25"
+  }
+}
