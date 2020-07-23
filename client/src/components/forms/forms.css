@@ -1,0 +1,15 @@
+.signup-form {
+  width: 600px;
+  border: 1px solid black;
+  padding: 40px;
+  margin: 0 auto;
+  border-radius: 6px;
+}
+
+.signin-form {
+  width: 600px;
+  border: 1px solid black;
+  padding: 40px;
+  margin: 0 auto;
+  border-radius: 6px;
+}

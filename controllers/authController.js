@@ -60,8 +60,24 @@ exports.signin = async (req, res) => {
   }
 };
 
+// later move to users controller: get user by id
+exports.loadUser = async (req, res, next) => {
+  try {
+    const user = await User.findById(req.user.id);
+    res.status(200).json({
+      status: "success",
+      data: { user },
+    });
+  } catch (error) {
+    res.status(400).json({
+      status: "fail",
+      message: error.message,
+    });
+  }
+};
+
 // Middleware to check if user has access
-exports.authUser = async (req, res, next) => {
+exports.protect = async (req, res, next) => {
   if (
     !req.headers.authorization ||
     !req.headers.authorization.startsWith("Bearer")
