@@ -1,11 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import Pusher from "pusher-js";
 import "./Page.css";
 
 const Page = ({ token }) => {
-  const [onlineUsers, setOnlineUsers] = useState([]);
   const hashCode = (s) =>
     s.split("").reduce((a, b) => {
       a = (a << 5) - a + b.charCodeAt(0);
@@ -32,35 +31,13 @@ const Page = ({ token }) => {
     channel.bind("pusher:subscription_succeeded", () => {
       channel.members.each((member) => {
         addMemberToUserList(member);
-        setOnlineUsers(...onlineUsers, {
-          id: member.id,
-          name: member.info.name,
-          email: member.info.email,
-        });
       });
-
-      // TODO: count members
-      let members = [];
-      channel.members.each((member) => {
-        const user = {
-          id: member.id,
-          name: member.info.name,
-          email: member.info.email,
-        };
-        members.push(user);
-      });
-      console.log(members);
     });
+
     channel.bind("pusher:member_added", (member) => {
       addMemberToUserList(member);
-      setOnlineUsers(
-        onlineUsers.concat({
-          id: member.id,
-          name: member.info.name,
-          email: member.info.email,
-        })
-      );
     });
+
     channel.bind("pusher:member_removed", (member) => {
       const userEl = document.getElementById("user_" + member.id);
       userEl.parentNode.removeChild(userEl);

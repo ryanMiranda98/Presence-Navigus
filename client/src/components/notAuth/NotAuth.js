@@ -1,10 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const NotAuth = () => {
+const NotAuth = (props) => {
+  console.log(props);
   return (
     <div className="container text-center">
-      <h1>You are not authorized to access this page.</h1>
+      <h1>Something went wrong...</h1>
       <h4>Please sign in to get access</h4>
       <Link to="/signin">
         <button

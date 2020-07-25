@@ -1,11 +1,13 @@
 import React, { Fragment } from "react";
 import { Route, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
+import PropTypes from "prop-types";
 
 const PrivateRoute = ({
   component: Component,
   isAuthenticated,
   loading,
+  user,
   ...rest
 }) => {
   return (
@@ -13,10 +15,10 @@ const PrivateRoute = ({
       <Route
         {...rest}
         render={(props) =>
-          isAuthenticated && !loading ? (
-            <Component {...props} />
-          ) : (
+          !isAuthenticated && !loading ? (
             <Redirect to="/auth-denied" />
+          ) : (
+            <Component {...props} />
           )
         }
       />
@@ -24,7 +26,12 @@ const PrivateRoute = ({
   );
 };
 
+PrivateRoute.propTypes = {
+  isAuthenticated: PropTypes.bool.isRequired,
+};
+
 const mapStateToProps = (state) => ({
+  user: state.auth.user,
   isAuthenticated: state.auth.isAuthenticated,
   loading: state.auth.loading,
 });

@@ -3,13 +3,14 @@ import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 import Navbar from "./components/layout/Navbar";
 import Signup from "./components/forms/Signup";
 import Signin from "./components/forms/Signin";
+import PrivateRoute from "./components/privateRoute/PrivateRoute";
+import Home from "./components/home/Home";
+import NotAuth from "./components/notAuth/NotAuth";
+import "./App.css";
+
 import setAuthToken from "./utils/setAuthToken";
 import { loadUser } from "./actions/authActions";
 import store from "./store";
-import PrivateRoute from "./components/privateRoute/PrivateRoute";
-import Home from "./components/home/Home";
-import "./App.css";
-import NotAuth from "./components/notAuth/NotAuth";
 
 function App() {
   if (localStorage.token) {
