@@ -11,16 +11,16 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 const authRoute = require("./routes/authRoute");
-app.use("/api/users", authRoute);
-
 const pageRoute = require("./routes/pageRoute");
+
+app.use("/api/users", authRoute);
 app.use("/api/pages", pageRoute);
 
 if (process.env.NODE_ENV === "production") {
   // Set static folder
   app.use(express.static("client/build"));
   app.get("*", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "client", "build"));
+    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
   });
 }
 

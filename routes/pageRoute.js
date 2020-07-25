@@ -2,13 +2,14 @@ const express = require("express");
 const router = express.Router();
 const authController = require("../controllers/authController");
 const Pusher = require("pusher");
+const config = require("config");
 
 // PUSHER
 const pusher = new Pusher({
-  appId: process.env.PUSHER_APP_ID,
-  key: process.env.PUSHER_KEY,
-  secret: process.env.PUSHER_SECRET,
-  cluster: process.env.PUSHER_CLUSTER,
+  appId: config.get("PUSHER_APP_ID"),
+  key: config.get("PUSHER_KEY"),
+  secret: config.get("PUSHER_SECRET"),
+  cluster: config.get("PUSHER_CLUSTER"),
   useTLS: true,
 });
 

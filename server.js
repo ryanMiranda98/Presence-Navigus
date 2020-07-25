@@ -1,12 +1,12 @@
 const path = require("path");
-const dotenv = require("dotenv");
-dotenv.config({ path: path.join(__dirname, "config.env") });
-
+// const dotenv = require("dotenv");
+// dotenv.config({ path: path.join(__dirname, "config.env") });
+const config = require("config");
 const app = require("./app");
 
 const mongoose = require("mongoose");
 mongoose
-  .connect(process.env.DB_URI, {
+  .connect(config.get("DB_URI"), {
     useNewUrlParser: true,
     useFindAndModify: false,
     useUnifiedTopology: true,

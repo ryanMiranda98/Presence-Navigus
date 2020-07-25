@@ -1,0 +1,13 @@
+{
+    "DB_URI": "mongodb+srv://ryan:0MYRlxwLrUiU6aiG@presence-navigus.mnqqa.mongodb.net/PresenceNavigus?retryWrites=true&w=majority",
+    "DB_USER":"ryan",
+    "DB_PASSWORD":"0MYRlxwLrUiU6aiG",
+    "JWT_SECRET":"LV5trXHZvnnFakbJWZ8bWiejXVK8s6H2",
+    "JWT_EXPIRY":"10d",
+    "NODE_ENV":"development",
+
+    "PUSHER_APP_ID":"1044378",
+    "PUSHER_KEY":"b8ae413d3923b4e5b88a",
+    "PUSHER_SECRET":"811cbd47d839688b0ace",
+    "PUSHER_CLUSTER":"ap2"
+}
