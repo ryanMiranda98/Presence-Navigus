@@ -21,8 +21,8 @@ const Page = ({ token }) => {
   }
 
   useEffect(() => {
-    const pusher = new Pusher(process.env.REACT_APP_PUSHER_KEY, {
-      cluster: process.env.REACT_APP_PUSHER_CLUSTER,
+    const pusher = new Pusher("b8ae413d3923b4e5b88a", {
+      cluster: "ap2",
       forceTLS: true,
       authEndpoint: "http://localhost:5000/api/pages/pusher/auth",
       auth: { headers: { Authorization: `Bearer ${token}` } },
