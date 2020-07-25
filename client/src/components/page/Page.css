@@ -1,0 +1,26 @@
+.page-card{
+    width: 100%;
+    min-height: 300px;
+    padding: 30px;
+    margin-top: 20px;
+}
+
+.title{
+    font-size: 24px;
+    font-weight: bold;
+    /* display: inline; */
+    width: fit-content;
+}
+
+#user_list div {
+    float: right; margin-left: -12px;
+    font-family: sans-serif; text-align: center;
+    height: 40px; width: 40px; line-height: 40px;
+    border-radius: 50%;
+    border: 3px solid white; color: white;
+}
+
+.top-bar{
+    width: 200px;
+    justify-content: flex-end;
+}

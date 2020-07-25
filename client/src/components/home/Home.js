@@ -1,11 +1,12 @@
-import React from 'react'
+import React from "react";
+import Page from "../page/Page";
 
 const Home = () => {
-    return (
-        <div>
-            Home
-        </div>
-    )
-}
+  return (
+    <div className="container d-flex flex-wrap">
+      <Page />
+    </div>
+  );
+};
 
-export default Home
+export default Home;

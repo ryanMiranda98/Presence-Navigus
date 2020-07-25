@@ -7,6 +7,7 @@ import {
   LOGIN_SUCCESS,
   AUTH_ERROR,
   AUTH_SUCCESS,
+  LOGOUT,
 } from "./types";
 import axios from "axios";
 import setAuthToken from "../utils/setAuthToken";
@@ -63,7 +64,6 @@ export const login = ({ email, password }) => async (dispatch) => {
       body,
       config
     );
-    console.log(res);
     dispatch({
       type: LOGIN_SUCCESS,
       payload: res.data.data.token,
@@ -76,4 +76,10 @@ export const login = ({ email, password }) => async (dispatch) => {
       // payload: res.data
     });
   }
+};
+
+// LOGOUT
+export const logout = () => async (dispatch) => {
+  // create logout() in server
+  dispatch({ type: LOGOUT });
 };

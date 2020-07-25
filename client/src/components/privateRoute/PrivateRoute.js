@@ -16,7 +16,7 @@ const PrivateRoute = ({
           isAuthenticated && !loading ? (
             <Component {...props} />
           ) : (
-            <Redirect to="/" />
+            <Redirect to="/auth-denied" />
           )
         }
       />

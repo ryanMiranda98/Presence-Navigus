@@ -3,8 +3,9 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
 import { connect } from "react-redux";
+import { logout } from "../../actions/authActions";
 
-const Navbar = ({ isAuthenticated, user, loading }) => {
+const Navbar = ({ isAuthenticated, user, loading, logout }) => {
   const guestLinks = (
     <Fragment>
       <Link className="nav-item nav-link" to="/">
@@ -18,11 +19,13 @@ const Navbar = ({ isAuthenticated, user, loading }) => {
 
   const authLinks = (
     <Fragment>
-      {/* <p>Welcome, {user.name}</p> */}
+      <span id="welcome-user" className="nav-item nav-link">
+        {!user ? "" : <span>Welcome, {user.name.split(" ")[0]}</span>}
+      </span>
       <Link className="nav-item nav-link active" to="/home">
         Home
       </Link>
-      <Link className="nav-item nav-link" to="/logout">
+      <Link to="/signin" className="nav-item nav-link" onClick={() => logout()}>
         Logout
       </Link>
     </Fragment>
@@ -71,4 +74,4 @@ const mapStateToProps = (state) => ({
   loading: state.auth.loading,
 });
 
-export default connect(mapStateToProps)(Navbar);
+export default connect(mapStateToProps, { logout })(Navbar);
